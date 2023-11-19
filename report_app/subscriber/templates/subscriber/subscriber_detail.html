@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Інформація про абонента</h1>
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{ subscriber }}</h2>
+            <p class="card-text">
+                <strong>Номер телефону: {{ subscriber.phone }}</strong>
+            </p>
+            <p class="card-text">
+                <strong>Емейл: {{ subscriber.email }}</strong>
+            </p>
+            <p class="card-text">
+                <strong>Дата додавання: {{ subscriber.created_at }}</strong>
+            </p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <a class="btn btn-danger btn-lg" href="{% url 'subscriber_update' subscriber.pk %}">Редагувати</a>
+    </div>
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <a class="btn btn-danger btn-lg" href="{% url 'subscriber_delete' subscriber.pk %}">Видалити</a>
+    </div>
+</div>
+{% endblock %}

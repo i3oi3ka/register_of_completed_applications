@@ -16,9 +16,9 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: 18551855
-      POSTGRES_USER: my_user
-      POSTGRES_DB: report_db
+      POSTGRES_PASSWORD: os.gotenv("POSTGRES_PASSWORD")
+      POSTGRES_USER: os.gotenv("POSTGRES_USER")
+      POSTGRES_DB: os.gotenv("POSTGRES_DB")
     ports:
       - 5433:5432
     networks:

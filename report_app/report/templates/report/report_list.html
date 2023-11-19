@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+<div class="container">
+    <h1>Звіти про підключення</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Абонент</th>
+                <th>Населений пункт</th>
+                <th>Вул.</th>
+                <th>Буд.</th>
+                <th>кв.</th>
+                <th>Тип</th>
+                <th>FO</th>
+                <th>UTP</th>
+                <th>Роутер</th>
+                <th>ТВ</th>
+                <th>Дата</th>
+                <th>Виконавець</th>
+                <th>Напарник</th>
+                <th>Редагувати</th>
+                <th>Видалити</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr>
+                <td>{{ report.subscriber.first_name }} {{ report.subscriber.last_name }}</td>
+                <td>{{ report.city.name }}</td>
+                <td>{{ report.street }}</td>
+                <td>{{ report.house }}</td>
+                <td>{{ report.apartment }}</td>
+                <td>{{ report.get_report_type_display }}</td>
+                <td>{{ report.cable_fo }}</td>
+                <td>{{ report.cable_utp }}</td>
+                <td>{{ report.router }}</td>
+                <td>{{ report.tv }}</td>
+                <td>{{ report.connection_date|date:"d.m.Y" }}</td>
+                <td>{{ report.executor }}</td>
+                <td>{{ report.partner }}</td>
+                <td><a href="{% url 'report_update' report.pk %}">редагувати</a></td>
+                <td><a href="{% url 'report_delete' report.pk %}">видалити</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% include 'pagination.html' %}
+</div>
+{% endblock %}

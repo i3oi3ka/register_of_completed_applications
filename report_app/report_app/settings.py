@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my_app
     'debug_toolbar',
-    'users'
+    'users',
+    'subscriber',
+    'report',
 ]
 
 MIDDLEWARE = [
@@ -141,7 +143,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.ukr.net'
 EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'i3oi3ka@ukr.net'
-EMAIL_HOST_PASSWORD = 'pAY8z5o2GRRHylSj'
-DEFAULT_FROM_EMAIL = 'i3oi3ka@ukr.net'
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
 

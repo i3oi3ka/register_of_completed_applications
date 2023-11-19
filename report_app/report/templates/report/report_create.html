@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-group">
+    <h1>Create Report</h1>
+    <form class="mx-1 mx-md-1" novalidate method="post" action="{% url 'report_create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-flex justify-content-center mx-4 mt-2 mb-3 mb-lg-4">
+            <button type="submit" class="btn btn-primary btn-lg">Зберегти</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

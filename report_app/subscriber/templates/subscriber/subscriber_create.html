@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1>Create Message</h1>
+
+
+    <form class="mx-1 mx-md-4" novalidate method="post" action="{% url 'subscriber_create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+            <button type="submit" class="btn btn-primary btn-lg">Зберегти</button>
+        </div>
+
+    </form>
+
+
+</div>
+
+{% endblock %}

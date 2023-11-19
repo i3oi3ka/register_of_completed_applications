@@ -18,14 +18,15 @@
         <nav class="d-flex justify-content-between align-items-center">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href=#> Усі пости</a>
+                    <a class="nav-link text-white" href="{% url 'report_list' %}">Усі заявки </a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{% url 'users_list' %}">Користувачі</a>
                 </li>
                 <!-- Add "Create Post" button here -->
-                <a href='#' class="btn btn-success">Створити пост</a>
+                <a href='{% url "subscriber_create" %} ' class="btn btn-success">Додати Абонента</a>
+                <a href='{% url "report_create" %} ' class="btn btn-success">Додати Звіт</a>
             </ul>
             <div class="ms-auto">
                     <span class="me-3 text-white">Вітаю, <a href="{% url 'user_detail' user.pk %}"

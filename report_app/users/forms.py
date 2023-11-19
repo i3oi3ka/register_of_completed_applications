@@ -35,7 +35,6 @@ class ChangeUserInfo(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Імя'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'email'}),
             'avatar': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'avatar'}),
-
         }
 
 

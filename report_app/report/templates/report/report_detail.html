@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1>Звіт:</h1>
+    <div class="card">
+        <div class="card-body">
+            {{ report }}
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <a class="btn btn-danger btn-lg" href="{% url 'report_update' report.pk %}">Редагувати</a>
+    </div>
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <a class="btn btn-danger btn-lg" href="{% url 'report_delete' report.pk %}">Видалити</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Список Абонентів:</h1>
+    <ul class="list-group">
+        {% for subscriber in subscribers %}
+        <li class="list-group-item {% if message.unread %} unread {% endif %}">
+            <div class="card-body">
+                <a href="{% url 'subscriber_detail' subscriber.pk %}"><h2 class="card-title">{{ subscriber }}</h2></a>
+                <p class="card-text">
+                    Номер телефону: {{ subscriber.phone }}
+                </p>
+                <p class="card-text">
+                    Емейл: {{ subscriber.email }}
+                </p>
+                <p class="card-text">
+                    Дата додавання: {{ subscriber.created_at }}
+                </p>
+            </div>
+
+        </li>
+        {% endfor %}
+    </ul>
+    {% include 'pagination.html' %}
+</div>
+{% endblock %}
